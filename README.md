@@ -1,7 +1,3 @@
-太好了 ✅ 那我帮你把 **Team Information** 区块加到刚才的 GitHub 精简版 README 里，放在最末尾。这样既专业，又能突出你们的身份。
-
----
-
 # 🚀 Improved Adversarial Stickers
 
 [![Python](https://img.shields.io/badge/python-3.8-blue.svg)]()
@@ -9,9 +5,10 @@
 [![Paper](https://img.shields.io/badge/Paper-TPAMI%202022-orange)](https://ieeexplore.ieee.org/abstract/document/9779913)
 
 This repository provides an improved implementation of the paper:
-👉 *Adversarial Stickers: A Stealthy Attack Method in the Physical World* (TPAMI 2022)
+👉 *Adversarial Stickers: A Stealthy Attack Method in the Physical World* (TPAMI 2022)[(https://ieeexplore.ieee.org/abstract/document/9779913)]
 
 The original paper proposes a stealthy physical-world adversarial attack by embedding meaningful stickers onto faces. Our curreent version is built upon the official codebase [Adv-Stickers\_RHDE](https://github.com/jinyugy21/Adv-Stickers_RHDE) with several fixes and improvements for easier setup and use.
+
 ---
 
 ## 🔧 Improvements Over Original
@@ -137,5 +134,7 @@ Results will be saved in:
 
 * Zehao Wang ([zwan0536@student.monash.edu](mailto:zwan0536@student.monash.edu))
 * Ru Zhang ([rzha0193@student.monash.edu](mailto:rzha0193@student.monash.edu))
+
+---
 
 *This project was developed as part of the **“Adversarial ML on Gen AI” Challenge** (Theme 1 – Dark Side: Attacker).*
