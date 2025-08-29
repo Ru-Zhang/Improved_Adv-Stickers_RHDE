@@ -1,56 +1,141 @@
-# Improvement of Adversarial Stickers
-In this repository, we provide the code based on the paper [Adversarial Stickers: A Stealthy Attack Method in the Physical World](https://ieeexplore.ieee.org/abstract/document/9779913) which proposes an attack method to embed a sticker into a face image. 
+太好了 ✅ 那我帮你把 **Team Information** 区块加到刚才的 GitHub 精简版 README 里，放在最末尾。这样既专业，又能突出你们的身份。
 
-## Preparation
+---
 
-### Environment Settings:
-Install conda, and create a new environment with Python 3.8.11.
-`conda create -n adv_sticker python=3.8.11`
-`conda activate adv_sticker`
-`pip install -r requirements.txt`
+# 🚀 Improved Adversarial Stickers
 
-### Data Preparation：
-+ face
-Please download the dataset ([LFW](https://drive.google.com/file/d/0B7EVK8r0v71pZDFOOGxhbm1oakE/view?usp=share_link&resourcekey=0-OvdR0Gk5lY7a8r5FjKIYhA), place it in ```./datasets/``` and rename the directory to ```lfw_images```.
+[![Python](https://img.shields.io/badge/python-3.8-blue.svg)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)]()
+[![Paper](https://img.shields.io/badge/Paper-TPAMI%202022-orange)](https://ieeexplore.ieee.org/abstract/document/9779913)
 
-The directory structure example is:
+This repository provides an improved implementation of the paper:
+👉 *Adversarial Stickers: A Stealthy Attack Method in the Physical World* (TPAMI 2022)
+
+The original paper proposes a stealthy physical-world adversarial attack by embedding meaningful stickers onto faces. Our curreent version is built upon the official codebase [Adv-Stickers\_RHDE](https://github.com/jinyugy21/Adv-Stickers_RHDE) with several fixes and improvements for easier setup and use.
+---
+
+## 🔧 Improvements Over Original
+
+* ✅ Fixed bugs (e.g., missing pretrained face recognition model → replaced with [FaceNet](https://github.com/timesler/facenet-pytorch)).
+* ✅ Updated deprecated libraries/functions.
+* ✅ Clearer environment & installation guide.
+* ✅ Cleaned unsupported datasets/models → focus on **FaceNet + LFW**.
+* ✅ Better documentation with examples.
+
+---
+
+## ⚙️ Quick Start
+
+### 1. Environment Setup
+
+Make sure you have [conda](https://docs.conda.io/) installed, then run:
+
+```bash
+conda create -n adv_sticker python=3.8.11
+conda activate adv_sticker
+pip install -r requirements.txt
 ```
-datasets
--datasets name
- --person 1
-   ---pic001
-   ---pic002
-   ---pic003  
+
+---
+
+### 2. Data Preparation
+
+#### (a) Face Dataset
+
+Download the [LFW dataset](https://drive.google.com/file/d/0B7EVK8r0v71pZDFOOGxhbm1oakE/view?usp=share_link&resourcekey=0-OvdR0Gk5lY7a8r5FjKIYhA).
+Place it under `./datasets/` and rename the folder to `lfw_images`.
+
+Example directory structure:
+
 ```
-+ stickers
-Prepare the pre-defined stickers and place them in ```./stickers/```.
-
-### Model Preparation：
-Tool model ([FaceNet](https://github.com/timesler/facenet-pytorch) should be placed in ```./models/```. If the model is replaced, ```./utils/predict.py``` should be changed as needed.
-
-### Other Necessary Tools:
-+ Python tools for [3D face](https://github.com/YadiraF/face3d/tree/master/face3d). The tool has included in the repository.
-
-*Due to the limit of big file size, we cannot upload the BFM model and Shape predictor for face landmarks. Please download them from the following links and place them in right path.*
-+ BFM Data (https://drive.google.com/file/d/1sTNEi7MGMe-azOkAtc5bg6QuEwFI1XvT/view?usp=share_link). Please download it and then place it in ```./BFM/```.
-+ Shape predictor for face landmarks ([68](https://github.com/r4onlyrishabh/facial-detection/tree/master/dataset), [81](https://github.com/codeniko/shape_predictor_81_face_landmarks)). Please place them in root directory which is same as the file ```attack_single.py```.
-
-## Attack
-Hyperparameter settings: ```./utils/config.py```
-
-Running this command for attacking a single image:
+datasets/
+ └── lfw_images/
+     ├── person1/
+     │   ├── pic001.jpg
+     │   ├── pic002.jpg
+     └── person2/
+         ├── pic001.jpg
+         ├── pic002.jpg
 ```
+
+### 3. Model Preparation
+
+We use [FaceNet](https://github.com/timesler/facenet-pytorch) as the base model.
+Download the pretrained model and place it in:
+
+```
+./models/
+```
+
+If you use another model, please modify `./utils/predict.py` accordingly.
+
+---
+
+### 4. Other Dependencies
+
+* [Face3D](https://github.com/YadiraF/face3d/tree/master/face3d) (already included in this repo).
+
+
+* Due to file size limits, some required models must be downloaded manually:
+
+  * **BFM Model**: [Download here](https://drive.google.com/file/d/1sTNEi7MGMe-azOkAtc5bg6QuEwFI1XvT/view?usp=share_link) → place under `./BFM/`
+  * **Shape Predictors for Face Landmarks**:
+
+    * [68 landmarks](https://github.com/r4onlyrishabh/facial-detection/tree/master/dataset)
+    * [81 landmarks](https://github.com/codeniko/shape_predictor_81_face_landmarks)
+      → place both in the project root directory (same as `attack_single.py`).
+
+---
+
+## 🎯 Attack
+
+### Hyperparameters
+
+Configuration file:
+
+```
+./utils/config.py
+```
+
+### Run Attack
+
+To attack a single image:
+
+```bash
 python attack_single.py
 ```
 
-Successfully attacked images will be saved in ```./results_img/```
+Results will be saved in:
 
-# References
+```
+./results_img/
+```
 
-## Paper
-Adversarial Stickers: A Stealthy Attack Method in the Physical World [Adversarial Stickers: A Stealthy Attack Method in the Physical World](https://ieeexplore.ieee.org/abstract/document/9779913) (TPAMI 2022)
+---
 
-## Code
-+ [Adv-Stickers](https://github.com/jinyugy21/Adv-Stickers_RHDE)
-+ [Face3D](https://github.com/yfeng95/face3d/tree/master/face3d)
-+ [FaceNet](https://github.com/timesler/facenet-pytorch)
+## 🚩 Future Work
+
+* Reduce queries (Bayesian/Hybrid optimization).
+* Multi-sticker & noise-robust attacks.
+* Stealthier sticker designs (natural/logos).
+* Extend beyond FaceNet (traffic signs, retrieval).
+
+---
+
+## 📚 References
+
+* Paper: [Adversarial Stickers: A Stealthy Attack Method in the Physical World (TPAMI 2022)](https://ieeexplore.ieee.org/abstract/document/9779913)
+* Code: [Adv-Stickers](https://github.com/jinyugy21/Adv-Stickers_RHDE) | [Face3D](https://github.com/yfeng95/face3d/tree/master/face3d) | [FaceNet](https://github.com/timesler/facenet-pytorch)
+
+---
+
+## 👥 Team Information
+
+**Team Name**: BlackBox Alchemists
+
+**Members**:
+
+* Zehao Wang ([zwan0536@student.monash.edu](mailto:zwan0536@student.monash.edu))
+* Ru Zhang ([rzha0193@student.monash.edu](mailto:rzha0193@student.monash.edu))
+
+*This project was developed as part of the **“Adversarial ML on Gen AI” Challenge** (Theme 1 – Dark Side: Attacker).*
