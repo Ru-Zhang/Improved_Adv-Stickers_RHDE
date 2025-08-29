@@ -32,11 +32,7 @@ conda activate adv_sticker
 pip install -r requirements.txt
 ```
 
----
-
 ### 2. Data Preparation
-
-#### (a) Face Dataset
 
 Download the [LFW dataset](https://drive.google.com/file/d/0B7EVK8r0v71pZDFOOGxhbm1oakE/view?usp=share_link&resourcekey=0-OvdR0Gk5lY7a8r5FjKIYhA).
 Place it under `./datasets/` and rename the folder to `lfw_images`.
@@ -57,8 +53,6 @@ datasets
 We use [FaceNet](https://github.com/timesler/facenet-pytorch) for face recognition. Download the pretrained model and place it in `./models/`.
 
 If you use another model, please modify `./utils/predict.py` accordingly.
-
----
 
 ### 4. Other Dependencies
 
