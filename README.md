@@ -16,7 +16,7 @@ The original paper proposes a stealthy physical-world adversarial attack by embe
 * ✅ Fixed bugs (e.g., missing pretrained face recognition model → replaced with [FaceNet](https://github.com/timesler/facenet-pytorch)).
 * ✅ Updated deprecated libraries/functions.
 * ✅ Clearer environment & installation guide.
-* ✅ Cleaned unsupported datasets/models → focus on **FaceNet + LFW**.
+* ✅ Cleaned unsupported datasets/models → focus on FaceNet + LFW.
 
 ---
 
@@ -44,12 +44,12 @@ Place it under `./datasets/` and rename the folder to `lfw_images`.
 Example directory structure:
 
 ```
-datasets/
- └── lfw_images/
-     ├── Aaron_Eckhart/
-     │   ├── Aaron_Eckhart_0001.jpg
-     └── Aaron_Guiel/
-         ├── Aaron_Guiel_0001.jpg
+datasets
+└── lfw_images
+    ├── AJ_Cook
+    │   └── AJ_Cook_0001.jpg
+    ├── AJ_Lamas
+    │   └── AJ_Lamas_0001.jpg        
 ```
 
 ### 3. Model Preparation
@@ -77,16 +77,16 @@ If you use another model, please modify `./utils/predict.py` accordingly.
 Example directory structure:
 
 ```
-./
- └── face3d/
-     ├── mesh/
-     ├── mesh_numpy/
-     ├── morphable_model/
+.
+ └── face3d
+     ├── mesh
+     ├── mesh_numpy
+     ├── morphable_model
      └── __init__.py
- └── BFM/
+ └── BFM
      └── BFM.mat
  └── shape_predictor_68_face_landmarks.dat
- └── shape_predictor_81_face_landmarks.da
+ └── shape_predictor_81_face_landmarks.dat
 ```
 
 ---
