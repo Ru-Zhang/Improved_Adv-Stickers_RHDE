@@ -17,7 +17,6 @@ The original paper proposes a stealthy physical-world adversarial attack by embe
 * ✅ Updated deprecated libraries/functions.
 * ✅ Clearer environment & installation guide.
 * ✅ Cleaned unsupported datasets/models → focus on **FaceNet + LFW**.
-* ✅ Better documentation with examples.
 
 ---
 
