@@ -113,6 +113,7 @@ def predict_type_facenet(image_perturbed, cleancrop):
 
     # resnet = torch.load('./models/facenet/net_13_022.pth',map_location='cuda:0').to(device)
     resnet = InceptionResnetV1(pretrained='casia-webface')
+    resnet.to(device)
     resnet.eval()
     resnet.classify = True
     
@@ -159,6 +160,7 @@ def initial_predict_facenet(image_perturbed):
 
     # resnet = torch.load('./models/facenet/net_13_022.pth',map_location='cuda:0').to(device)
     resnet = InceptionResnetV1(pretrained='casia-webface')
+    resnet.to(device)
     resnet.eval()
     resnet.classify = True
     
